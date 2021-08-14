@@ -1,7 +1,6 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
-import ListExample from '../components/list';
 const pagename="About"
 const Tab1: React.FC = () => {
   return (
@@ -17,7 +16,7 @@ const Tab1: React.FC = () => {
             <IonTitle size="large">{pagename}</IonTitle>
           </IonToolbar>
         </IonHeader>
-Harrison Reid hreid1
+Harrison Reid hreid1 test
       </IonContent>
       <br></br>
     </IonPage>

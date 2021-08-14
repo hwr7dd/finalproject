@@ -1,7 +1,6 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
 import './Tab2.css';
-import ListExample from '../components/list';
+import FruitForm from '../components/adduser';
 const Tab2: React.FC = () => {
   return (
     <IonPage>
@@ -15,10 +14,10 @@ const Tab2: React.FC = () => {
           <IonToolbar>
             <IonTitle size="large">List</IonTitle>
           </IonToolbar>
+
         </IonHeader>
         <br></br>
-        <ListExample></ListExample>
-
+        <FruitForm></FruitForm>
       </IonContent>
 
     </IonPage>

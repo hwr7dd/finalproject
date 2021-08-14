@@ -1,0 +1,33 @@
+.delete {
+    margin-left: 20px;
+    color: red;
+    box-shadow: deeppink;
+}
+
+.delete:hover {
+    color: darkred;
+    cursor: pointer;
+}
+
+.labels {
+    margin-left: 20px;
+}
+
+.forms {
+    display: inline-block;
+    background-color: grey;
+    border: 1px dashed red;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#submitted.submitbutton {
+    background-color: white !important;
+    color: black !important;
+    border: 2px solid #4CAF50 !important;
+}
+
+#submitted.submitbutton:hover {
+    background-color: #4CAF50 !important;
+    color: white !important;
+}
