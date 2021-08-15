@@ -1,6 +1,7 @@
 import { IonInput,IonContent,IonButton,IonCard,IonCardHeader,IonCardTitle,IonCardSubtitle,IonCardContent, IonItem } from "@ionic/react";
 import {useState,useEffect,useRef} from "react";
-import './adduser.css'
+import './adduser.css';
+import { useIsScreenReaderEnabled, useSpeak,availableFeatures  } from '@capacitor-community/react-hooks/accessibility';
 
 const fruited={
   Name:"",
@@ -11,6 +12,7 @@ const fruited={
 
 export default function App() {
   const [fruit, setfruit] = useState(fruited);
+  const {isScreenReaderEnabled} = useIsScreenReaderEnabled();
   const[updated,setUpdate]=useState(fruited);
   const [updateList,setUpdateList]=useState([]);
   const [fruitList,setFruitList]=useState([]);
@@ -46,7 +48,7 @@ const onChangeEdit =(index)=> (e: React.ChangeEvent<HTMLInputElement>) => {
     [e.target.id]: e.target.value,
   }));
 };
- 
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setfruit(fruit);
@@ -79,6 +81,7 @@ const onChangeEdit =(index)=> (e: React.ChangeEvent<HTMLInputElement>) => {
   //   }
   //    console.log(fruitList);
   // }, [updateList]); 
+  const { speak } = useSpeak();
 
   return (
     <div id='submitted'>
@@ -103,9 +106,14 @@ const onChangeEdit =(index)=> (e: React.ChangeEvent<HTMLInputElement>) => {
             </IonCardSubtitle>
           </IonCardHeader>
           <IonButton color="danger"onClick={() =>handleRemoveItem(index)}>Remove Item </IonButton>
+          {isScreenReaderEnabled?<IonButton color="primary"onClick={() =>speak({value:"Test"})}>Speak Name </IonButton>:
+          <IonButton color="danger">Screen Reader Disabled </IonButton>
+          }
+test
           <IonButton key={index} color="warning" onClick={()=>handleEdit(index)}>Edit Item </IonButton>
        </IonCard>
-       {updateList[index].edit? <div key={index}>
+       {updateList[index].edit? 
+       <div key={index}>
          <form onSubmit={onSubmitEdit(index)} >
         <label className='labels' htmlFor="Name">Name: </label>
         <input type="text" id="Name"  onChange={onChangeEdit(index)} />
